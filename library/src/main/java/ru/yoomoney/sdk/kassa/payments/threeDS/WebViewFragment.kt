@@ -29,7 +29,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebChromeClient
-import android.webkit.WebSettings
 import android.webkit.WebView
 import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
@@ -40,19 +39,13 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
-import io.appmetrica.analytics.AppMetrica
-import ru.yoomoney.sdk.kassa.payments.BuildConfig
 import ru.yoomoney.sdk.kassa.payments.Checkout
 import ru.yoomoney.sdk.kassa.payments.checkoutParameters.TestParameters
-import ru.yoomoney.sdk.kassa.payments.logging.ReporterLogger
-import ru.yoomoney.sdk.kassa.payments.metrics.AppMetricaReporter
 import ru.yoomoney.sdk.kassa.payments.threeDS.WebViewActivity.Companion.checkUrl
 import ru.yoomoney.sdk.kassa.payments.ui.compose.MoneyPaymentComposeContent
 
 private const val KEY_LOAD_URL = "loadUrl"
 private const val KEY_REDIRECT_URL = "returnUrl"
-
-private const val ACTION_CLOSE_3DS_SCREEN = "close3dsScreen"
 
 @Keep
 internal class WebViewFragment : Fragment(), WebViewListener {
@@ -68,8 +61,6 @@ internal class WebViewFragment : Fragment(), WebViewListener {
 
     private val progress = MutableLiveData<Boolean>()
 
-    private lateinit var reporterLogger: ReporterLogger
-
     init {
         retainInstance = true
     }
@@ -78,16 +69,6 @@ internal class WebViewFragment : Fragment(), WebViewListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        reporterLogger = ReporterLogger(
-            AppMetricaReporter(AppMetrica.getReporter(requireContext().applicationContext, BuildConfig.APP_METRICA_KEY)),
-            (requireNotNull(arguments?.getParcelable(EXTRA_TEST_PARAMETERS)) as TestParameters).showLogs,
-            requireContext()
-        )
-        val logParam = arguments?.getString(EXTRA_LOG_PARAM)
-
-        if (savedInstanceState == null && logParam != null) {
-            reporterLogger.report(logParam)
-        }
 
         val context = checkNotNull(context) { "Context should be present here" }
         val appContext = context.applicationContext
@@ -97,7 +78,6 @@ internal class WebViewFragment : Fragment(), WebViewListener {
             settings.javaScriptEnabled = true
             settings.loadWithOverviewMode = true
             settings.useWideViewPort = true
-            settings.layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
             @Suppress("DEPRECATION")
             settings.saveFormData = false
             webViewClient = WebViewClientImpl(redirectUrl, this@WebViewFragment)
@@ -138,10 +118,6 @@ internal class WebViewFragment : Fragment(), WebViewListener {
         }
     }
 
-    override fun onCloseActivity() {
-        reporterLogger.report(ACTION_CLOSE_3DS_SCREEN, false)
-    }
-
     override fun onShowProgress() {
         progress.value = true
     }
@@ -151,7 +127,6 @@ internal class WebViewFragment : Fragment(), WebViewListener {
     }
 
     override fun onError(errorCode: Int, description: String?, failingUrl: String?) {
-        reporterLogger.report(ACTION_CLOSE_3DS_SCREEN, false)
         requireActivity().run {
             setResult(
                 Checkout.RESULT_ERROR,
@@ -166,11 +141,13 @@ internal class WebViewFragment : Fragment(), WebViewListener {
     }
 
     override fun onSuccess() {
-        reporterLogger.report(ACTION_CLOSE_3DS_SCREEN, true)
         requireActivity().run {
             setResult(AppCompatActivity.RESULT_OK, Intent().putExtras(intent))
             finish()
         }
+    }
+
+    override fun onCloseActivity() {
     }
 
     override fun onResume() {
@@ -203,7 +180,6 @@ internal class WebViewFragment : Fragment(), WebViewListener {
     }
 
     private fun close3DSProcess() {
-        reporterLogger.report(ACTION_CLOSE_3DS_SCREEN, false)
         requireActivity().run {
             setResult(Activity.RESULT_CANCELED)
             finish()
