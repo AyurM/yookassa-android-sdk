@@ -97,6 +97,7 @@ internal class WebViewFragment : Fragment(), WebViewListener {
             settings.javaScriptEnabled = true
             settings.loadWithOverviewMode = true
             settings.useWideViewPort = true
+            settings.layoutAlgorithm = WebSettings.LayoutAlgorithm.SINGLE_COLUMN
             @Suppress("DEPRECATION")
             settings.saveFormData = false
             webViewClient = WebViewClientImpl(redirectUrl, this@WebViewFragment)
