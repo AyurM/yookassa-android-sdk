@@ -1,7 +1,7 @@
 <resources>
   <string name='ym_payment_option_new_card'>Банковская карта</string>
   <string name='ym_payment_option_yoomoney'>ЮMoney</string>
-  <string name='ym_payment_options_title'>Способ оплаты</string>
+  <string name='ym_payment_options_title'>Тест способов оплаты</string>
   <string name='ym_contract_fee'>Включая комиссию</string>
   <string name='ym_contract_continue'>Продолжить</string>
   <string name='ym_allow_wallet_linking'>В следующий раз не придётся входить в профиль ЮMoney — можно будет оплатить быстрее</string>
