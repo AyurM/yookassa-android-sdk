@@ -95,6 +95,8 @@ internal class WebViewFragment : Fragment(), WebViewListener {
         webView = WebView(appContext, null, 0).apply {
             isFocusableInTouchMode = true
             settings.javaScriptEnabled = true
+            settings.loadWithOverviewMode = true
+            settings.useWideViewPort = true
             @Suppress("DEPRECATION")
             settings.saveFormData = false
             webViewClient = WebViewClientImpl(redirectUrl, this@WebViewFragment)
