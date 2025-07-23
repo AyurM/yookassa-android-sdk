@@ -1,0 +1,10 @@
+<resources>
+  <string name='ym_app_name'>Demo mSDK</string>
+  <string name='start_payment'>Start the payment process</string>
+  <string name='tokenization_canceled'>Tokenization canceled</string>
+  <string name='tokenization_success'>Token: %1$s</string>
+  <string name='test_phone_number'>+79991234567</string>
+  <string name='test_redirect_url'>https://custom.redirect.url/</string>
+  <string name='main_product_name'>Comet</string>
+  <string name='main_product_description'>Very bright, with an orbital period of 112 years.</string>
+</resources>

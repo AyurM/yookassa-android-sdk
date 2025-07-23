@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ The MIT License (MIT)
+  ~ Copyright © 2020 NBCO YooMoney LLC
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  ~ associated documentation files (the “Software”), to deal in the Software without restriction, including
+  ~ without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+  ~ of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+  ~ following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial
+  ~ portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+  ~ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+  ~ PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+  ~ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+  ~ OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+  ~ OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="ym_Theme" parent="Theme.Yoo">
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="colorAccent">@color/ym_palette_accent</item>
+        <item name="colorControlNormal">#1e000000</item>
+        <item name="android:alertDialogTheme">@style/ym_DialogStyleColored</item>
+        <item name="ym_ListItemSwitchCheckout_Style">@style/ym_ListItemSwitch</item>
+    </style>
+
+    <style name="ym_Theme.Toolbar" parent="Theme.Yoo" />
+
+    <style name="ym_FullscreenDialogTheme" parent="Theme.Yoo.BottomSheetDialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:windowBackground">@color/ym_background_color</item>
+        <item name="ym_ListItemSwitchCheckout_Style">@style/ym_ListItemSwitch</item>
+    </style>
+
+    <style name="ym_Theme.Toolbar.Transparent">
+        <item name="colorPrimary">@android:color/transparent</item>
+    </style>
+
+    <style name="ym_Theme.Translucent" parent="Theme.Yoo">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+        <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">true</item>
+        <item name="android:windowIsTranslucent">@bool/ym_windowIsTranslucent</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="android:windowIsFloating">@bool/ym_windowIsFloating</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="colorAccent">@color/ym_palette_accent</item>
+        <item name="ym_ListItemSwitchCheckout_Style">@style/ym_ListItemSwitch</item>
+    </style>
+
+    <style name="ym_MainDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ym_MainDialogSheetStyle</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="ym_ListItemSwitchCheckout_Style">@style/ym_ListItemSwitch</item>
+    </style>
+
+    <style name="ym_MainDialogSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/ym_dialog_background</item>
+        <item name="ym_ListItemSwitchCheckout_Style">@style/ym_ListItemSwitch</item>
+    </style>
+
+    <style name="ym_BankCardEditText">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColorHint">@color/color_type_ghost</item>
+        <item name="android:textColor">@color/color_type_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:lineSpacingMultiplier">1.15</item>
+        <item name="android:letterSpacing" tools:ignore="NewApi">0.01</item>
+    </style>
+    
+    <style name="ym_CardInfoEditText" parent="Text.Body.Light.Secondary">
+        <item name="android:letterSpacing" tools:ignore="NewApi">0.02</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="ym_ButtonStyleRed" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/color_alert</item>
+    </style>
+
+    <style name="ym_ButtonStyleBlue" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/ym_color_cursor</item>
+    </style>
+
+    <style name="ym_DialogStyleColored" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="buttonBarPositiveButtonStyle">@style/ym_ButtonStyleBlue</item>
+        <item name="buttonBarNegativeButtonStyle">@style/ym_ButtonStyleRed</item>
+    </style>
+
+    <style name="ym_ListItemSwitch" parent="ListItemSwitch">
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:minHeight">@null</item>
+    </style>
+</resources>

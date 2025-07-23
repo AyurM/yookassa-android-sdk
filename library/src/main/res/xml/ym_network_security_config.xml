@@ -1,0 +1,5 @@
+<network-security-config xmlns:tools="http://schemas.android.com/tools">
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">certs.yoomoney.ru</domain>
+    </domain-config>
+</network-security-config>

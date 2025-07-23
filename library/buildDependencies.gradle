@@ -1,0 +1,85 @@
+/*
+ * The MIT License (MIT)
+ * Copyright © 2022 NBCO YooMoney LLC
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ * associated documentation files (the “Software”), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+ * following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ * PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+ * OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+dependencies {
+    //sberpay Sdk dependencies begin
+    def view_binding = "7.4.2"
+    def material = "1.9.0"
+    def core_ktx = "1.9.0"
+    def appcompat = "1.6.1"
+    def constraint_layout = "2.1.4"
+    def activity_ktx = "1.6.1"
+    def lifecycle = "2.6.1"
+    def kotlinx_serialization = "1.4.1"
+    implementation "com.squareup.retrofit2:converter-gson:$gson"
+    implementation "org.jsoup:jsoup:$jsoup"
+    implementation "androidx.databinding:viewbinding:$view_binding"
+    implementation "androidx.core:core-ktx:$core_ktx"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout"
+    implementation "androidx.activity:activity-ktx:$activity_ktx"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
+    implementation "com.google.android.gms:play-services-auth-api-phone:$play_services"
+    implementation "com.jakewharton.timber:timber:$timber"
+    implementation "io.coil-kt:coil-base:$coil"
+    implementation "io.coil-kt:coil-svg:$coil"
+    implementation "com.facebook.shimmer:shimmer:$shimmer"
+    implementation "androidx.biometric:biometric:$biometric"
+    implementation "androidx.security:security-crypto:$security_crypto"
+    implementation "com.airbnb.android:lottie:$lottie"
+    implementation "com.jakewharton.threetenabp:threetenabp:$threetenabp"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinx_serialization"
+
+    compileOnly(fileTree(dir: "libs", includes: ["fingerprint-1.9.6.aar"]))
+    //sberpay Sdk dependencies end
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation "io.appmetrica.analytics:analytics:$appmetrica"
+    implementation 'ru.tinkoff.decoro:decoro:1.5.1'
+    implementation 'androidx.fragment:fragment-ktx:1.5.7'
+
+    implementation "ru.yoomoney.sdk:march:$march_lib_version"
+    implementation "ru.yoomoney.sdk.marchcompose:marchcompose-android-sdk:$march_compose"
+    implementation "ru.yoomoney.sdk.gui:ui-lib:$ui_lib_version"
+    implementation "ru.yoomoney.sdk.marchcompose:marchcompose-android-sdk:1.0.4"
+    implementation "ru.yoomoney.sdk.guiCompose:compose-ui-lib:$ui_compose_lib_version"
+    implementation "ru.yoomoney.sdk.yoopinning:yoopinning-android-sdk:$yoopinning"
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-jackson:$retrofit"
+    implementation "com.fasterxml.jackson.core:jackson-core:$jackson"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson"
+
+    implementation "io.coil-kt:coil-compose:$coil"
+
+    def daggerVersion = "2.50"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+}

@@ -1,0 +1,115 @@
+/*
+ * The MIT License (MIT)
+ * Copyright © 2020 NBCO YooMoney LLC
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ * associated documentation files (the “Software”), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+ * following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ * PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+ * OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+apply from: 'jacoco.gradle'
+
+ext {
+    coverageSourceDirs = 'src/test/java'
+}
+
+android {
+    namespace "ru.yoomoney.sdk.kassa.payments"
+    compileSdk rootProject.ext.compile_sdk_version
+
+    resourcePrefix 'ym_'
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.min_sdk_version
+
+        multiDexEnabled true
+        targetSdkVersion rootProject.ext.target_sdk_version
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+        buildConfigField "String", "APP_METRICA_KEY", "${optionalProperty('metricaKey')}"
+
+        buildConfigField "Integer", "VERSION_CODE", "${project.ext.versionCode}"
+        buildConfigField "String", "VERSION_NAME", "\"${project.ext.versionName}\""
+
+        vectorDrawables.useSupportLibrary = true
+
+        resValue "string", "ym_app_scheme", ""
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "APP_METRICA_KEY", "${optionalProperty('metricaTestKey')}"
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        extended {
+            buildConfigField "String", "APP_METRICA_KEY", "${optionalProperty('metricaTestKey')}"
+
+            debuggable true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${generateFileName(project, variant)}.aar"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+    buildFeatures {
+        viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion kotlin_compiler_extension
+    }
+    // fat aar workaround, remove after update plugin to newer version
+    libraryVariants.configureEach { variant ->
+        tasks.named("bundle${variant.name.capitalize()}LocalLintAar").configure {
+            dependsOn("mergeJars${variant.name.capitalize()}")
+        }
+        // second workaround fat aar
+        tasks.named("merge${variant.name.capitalize()}Assets").configure {
+            dependsOn("explodeFingerprint-1.9.6${variant.name.capitalize()}")
+        }
+    }
+}
+
+applyFromFileIfExists('buildInternal.gradle')
+apply from: 'buildDependencies.gradle'
+apply from: 'buildTestDependencies.gradle'

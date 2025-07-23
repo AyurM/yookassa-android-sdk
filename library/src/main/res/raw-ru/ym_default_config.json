@@ -1,0 +1,65 @@
+{
+  "yooMoneyLogoUrlLight": "https://static.yoomoney.ru/mobile-app-content-front/msdk/payment-options/v1/iokassa-light-rus.png",
+  "yooMoneyLogoUrlDark": "https://static.yoomoney.ru/mobile-app-content-front/msdk/payment-options/v1/iokassa-dark-rus.png",
+  "paymentMethods": [
+    {
+      "method": "bank_card",
+      "title": "Банковская карта",
+      "iconUrl": "https://static.yoomoney.ru/mobile-app-content-front/msdk/payment-options/v1/ym_ic_add_card.png"
+    },
+    {
+      "method": "yoo_money",
+      "title": "ЮMoney",
+      "iconUrl": "https://static.yoomoney.ru/mobile-app-content-front/msdk/payment-options/v1/ym_ic_yoomoney.png"
+    },
+    {
+      "method": "sberbank",
+      "title": "SberPay",
+      "iconUrl": "https://static.yoomoney.ru/mobile-app-content-front/msdk/payment-options/v1/ym_ic_sberbank.png"
+    },
+    {
+      "method": "google_pay",
+      "title": "Google Pay",
+      "iconUrl": "https://static.yoomoney.ru/mobile-app-content-front/msdk/payment-options/v1/ym_ic_google_pay.png"
+    },
+    {
+      "method": "sbp",
+      "title": "СБП",
+      "iconUrl": "https://static.yoomoney.ru/mobile-app-content-front/msdk/payment-options/v1/ym_ic_sbp.png"
+    }
+  ],
+  "savePaymentMethodOptionTexts": {
+    "switchRecurrentOnBindOnTitle": "Запомнить карту и разрешить автосписания",
+    "switchRecurrentOnBindOnSubtitle": "<a href=''>Как это работает</>",
+    "switchRecurrentOnBindOffTitle": "Разрешить автосписания",
+    "switchRecurrentOnBindOffSubtitle": "<a href=''>Как это работает</>",
+    "switchRecurrentOffBindOnTitle": "Запомнить карту",
+    "switchRecurrentOffBindOnSubtitle": "<a href=''>Как это работает</>",
+    "messageRecurrentOnBindOnTitle": "Заплатив здесь, вы разрешите автосписания и запомнить карту",
+    "messageRecurrentOnBindOnSubtitle": "<a href=''>Как это работает</>",
+    "messageRecurrentOnBindOffTitle": "Заплатив здесь, вы разрешаете автосписания",
+    "messageRecurrentOnBindOffSubtitle": "<a href=''>Как это работает</>",
+    "messageRecurrentOffBindOnTitle": "Заплатив здесь, вы разрешаете запомнить карту",
+    "messageRecurrentOffBindOnSubtitle": "<a href=''>Как это работает</>",
+    "messageRecurrentOnSBPTitle": "Вы привязываете счёт по правилам СБП и разрешаете автосписания",
+    "messageRecurrentOnSberPayTitle": "Заплатив здесь, вы разрешаете автосписания",
+    "switchRecurrentOnSBPTitle":  "Разрешить автосписания",
+    "switchRecurrentOnSberPayTitle": "Разрешить автосписания",
+    "screenRecurrentOnBindOnTitle": "Автосписания <br>и сохранение платёжных данных",
+    "screenRecurrentOnBindOnText": "Если вы это разрешили, мы сохраним для этого магазина и его партнёров данные вашей банковской карты &#8212; номер, имя владельца, срок действия (всё, кроме кода CVC). В следующий раз не нужно будет их вводить, чтобы заплатить в этом магазине. <br> <br>Кроме того, мы привяжем карту к магазину. После этого магазин сможет присылать запросы на автоматические списания денег &#8212; тогда платёж выполняется без дополнительного подтверждения с вашей стороны. <br> <br>Автосписания продолжатся даже при перевыпуске карты, если ваш банк умеет автоматически обновлять данные. Отключить их и отвязать карту можно в любой момент &#8212; через службу поддержки магазина.",
+    "screenRecurrentOnBindOffTitle": "Как работают автоматические списания",
+    "screenRecurrentOnBindOffText": "Если вы согласитесь на автосписания, мы привяжем банковскую карту к магазину. После этого магазин сможет присылать запросы на автоматические списания денег &#8212; тогда платёж выполняется без дополнительного подтверждения с вашей стороны. <br> <br>Автосписания продолжатся даже при перевыпуске карты, если ваш банк умеет автоматически обновлять данные. Отключить их и отвязать карту можно в любой момент &#8212; через службу поддержки магазина.",
+    "screenRecurrentOffBindOnTitle": "Сохранение платёжных данных",
+    "screenRecurrentOffBindOnText": "Если вы это разрешили, мы сохраним для этого магазина и его партнёров данные вашей банковской карты &#8212; номер, имя владельца и срок действия (всё, кроме кода CVC). В следующий раз не нужно будет вводить их, чтобы заплатить в этом магазине. <br> <br>Удалить данные карты можно в процессе оплаты (нажмите на три точки напротив карты и выберите «Удалить карту») или через службу поддержки.",
+    "screenRecurrentOnSberpayTitle": "Как работают автоматические списания",
+    "screenRecurrentOnSberpayText": "Если вы согласитесь на автосписания, мы привяжем банковскую карту к магазину. После этого магазин сможет присылать запросы на автоматические списания денег &#8212; тогда платёж выполняется без дополнительного подтверждения с вашей стороны. <br> <br>Автосписания продолжатся даже при перевыпуске карты, если ваш банк умеет автоматически обновлять данные. Отключить их и отвязать карту можно в любой момент &#8212; через службу поддержки магазина."
+  },
+  "agentSchemeProviderAgreement": {
+    "avanpost": "Заплатив здесь, вы принимаете <a href='https://yoomoney.ru/page?id=526623'>условия сервиса, </> платёж совершается с участием <a href='https://yoomoney.ru/page?id=530616'>платёжного агрегатора</>"
+  },
+  "userAgreementUrl": "Заплатив здесь, вы принимаете <a href='https://yoomoney.ru/page?id=526623'>условия сервиса</>",
+  "googlePayGateway": "yoomoney",
+  "yooMoneyApiEndpoint": "https://sdk.yookassa.ru/api/frontend/v3",
+  "yooMoneyPaymentAuthorizationApiEndpoint": "https://yoomoney.ru/api/wallet-auth/v1",
+  "yooMoneyAuthApiEndpoint": ""
+}

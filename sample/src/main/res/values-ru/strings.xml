@@ -1,0 +1,10 @@
+<resources>
+  <string name='ym_app_name'>Демо mSDK</string>
+  <string name='start_payment'>Начать платёж</string>
+  <string name='tokenization_canceled'>Токенизация отменена</string>
+  <string name='tokenization_success'>Токен: %1$s</string>
+  <string name='main_product_name'>Комета</string>
+  <string name='main_product_description'>Очень яркая, период обращения — 112 лет</string>
+  <string name='test_phone_number'>+79991234567</string>
+  <string name='test_redirect_url'>https://custom.redirect.url/</string>
+</resources>

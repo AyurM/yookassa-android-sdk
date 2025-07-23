@@ -1,0 +1,113 @@
+/*
+ * The MIT License (MIT)
+ * Copyright © 2020 NBCO YooMoney LLC
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ * associated documentation files (the “Software”), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+ * following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial
+ * portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+ * PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+ * OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+allprojects {
+    apply from: rootProject.file('common.gradle')
+}
+
+applyFromFileIfExists('buildInternal.gradle')
+
+buildscript {
+    ext.msdk_version = '7.0.1'
+    ext.build_gradle_version = '8.3.2'
+    ext.kotlin_version = '1.9.23'
+    ext.dokka_version = '0.9.17'
+    ext.okhttp_version = '4.11.0'
+    ext.mockito_version = '5.3.0'
+    ext.robolectric_version = '4.11.1'
+    ext.yoo_sdk_auth_version = '2.10.0'
+    ext.ui_lib_version = '2.31.0'
+    ext.ui_compose_lib_version = '2.31.0'
+    ext.march_lib_version = "1.4.0"
+    ext.march_compose = '1.2.0'
+    ext.junit = '4.13.2'
+    ext.appcompat = '1.6.1'
+    ext.material = '1.9.0'
+    ext.recyclerview = '1.3.1'
+    ext.constraintlayout = '2.1.4'
+    ext.espresso_core = '3.5.1'
+    ext.espresso_intents = '3.5.1'
+    ext.espresso_web = '3.5.1'
+    ext.androidx_junit = '1.1.5'
+    ext.yoopinning = '1.6.0'
+    ext.retrofit = '2.9.0'
+    ext.jackson = '2.13.5'
+    ext.gibsdk = '2.2.0'
+    ext.yooprofiler = '3.3.0'
+    ext.kotlin_compiler_extension = '1.5.11'
+    ext.appmetrica = '7.9.0'
+
+    //sberpay Sdk dependencies begin
+    ext.sberpay = '2.5.1'
+    ext.gson = '2.3.0'
+    ext.jsoup = '1.13.1'
+    ext.play_services = '18.0.1'
+    ext.timber = '5.0.1'
+    ext.threetenabp = '1.4.6'
+    ext.threetenbp = '1.6.8'
+    ext.coil = '2.4.0'
+    ext.shimmer = '0.5.0'
+    ext.biometric = '1.1.0'
+    ext.security_crypto = '1.1.0-alpha06'
+    ext.lottie = '6.2.0'
+    //sberpay Sdk dependencies end
+
+    ext.target_sdk_version = 34
+    ext.compile_sdk_version = ext.target_sdk_version
+    ext.min_sdk_version = 24
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url "https://developer.huawei.com/repo/" }
+        def file = file("buildscriptDependencies.gradle")
+        if (file.exists()) {
+            apply from: file, to: buildscript
+        }
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$build_gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:$dokka_version"
+        classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+if (file("buildscriptDependencies.gradle").exists()) {
+    apply plugin: 'ru.yoomoney.publish.android-publishing-plugin'
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
