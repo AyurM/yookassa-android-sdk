@@ -1,5 +1,5 @@
 <resources>
-  <string name='ym_payment_option_new_card'>Банковская карта</string>
+  <string name='ym_payment_option_new_card'>Тест Банковская карта</string>
   <string name='ym_payment_option_yoomoney'>ЮMoney</string>
   <string name='ym_payment_options_title'>Тест способов оплаты</string>
   <string name='ym_contract_fee'>Включая комиссию</string>
@@ -70,8 +70,8 @@
   <string name='ym_payment_auth_wrong_code'>Это не тот код. Проверьте и попробуйте ещё раз</string>
   <string name='ym_payment_auth_retry_text'>Получить новый код</string>
   <string name='ym_check_cvc'>Проверьте CVC код</string>
-  <string name='ym_linked_card'>Банковская карта</string>
-  <string name='ym_saved_card'>Банковская карта</string>
+  <string name='ym_linked_card'>Тест Банковская карта</string>
+  <string name='ym_saved_card'>Тест Банковская карта</string>
   <string name='ym_sbp'>СБП</string>
   <string name='ym_google_pay_description'>Дальше откроем приложение Google Pay — подтвердите оплату</string>
   <string name='ym_sber_pay_description'>Дальше откроем приложение СберБанк Онлайн — подтвердите оплату</string>
@@ -82,7 +82,7 @@
   <!--Название карты ЮMoney в списке способов оплаты https://jira.yamoney.ru/secure/attachment/599255/Screenshot%202021-07-05%20at%2011.50.03.png-->
   <string name='ym_linked_wallet_card'>Карта ЮMoney</string>
   <!--Название карты не ЮMoney в списке способов оплаты https://jira.yamoney.ru/secure/attachment/599255/Screenshot%202021-07-05%20at%2011.50.03.png-->
-  <string name='ym_linked_not_wallet_card'>Банковская карта</string>
+  <string name='ym_linked_not_wallet_card'>Тест Банковская карта</string>
   <!--Сообщение об автосписаниях после отвязки карты https://jira.yamoney.ru/secure/attachment/598559/image-2021-07-01-16-51-31-120.png-->
   <string name='ym_informer_unbind_text'>После удаления карты останутся автосписания. Отключить их можно через службу поддержки магазина</string>
   <!--Кнопка для открытия информационной формы https://jira.yamoney.ru/secure/attachment/598563/Screenshot%202021-07-01%20at%2016.54.13.png-->

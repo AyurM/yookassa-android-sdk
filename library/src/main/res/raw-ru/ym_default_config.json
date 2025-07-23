@@ -4,7 +4,7 @@
   "paymentMethods": [
     {
       "method": "bank_card",
-      "title": "Банковская карта",
+      "title": "Тест Банковская карта",
       "iconUrl": "https://static.yoomoney.ru/mobile-app-content-front/msdk/payment-options/v1/ym_ic_add_card.png"
     },
     {
